@@ -1,5 +1,5 @@
 {% set name = "alsa-plugins" %}
-{% set version = "1.1.5" %}
+{% set version = "1.2.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: ftp://ftp.alsa-project.org/pub/plugins/{{ name }}-{{ version }}.tar.bz2
-  sha256: 797da5f8f53379fbea28817bc466de16affd2c07849e84f1af8d5e22f7bb7f1c
+  sha256: 1c0f06450c928d711719686c9dbece2d480184f36fab11b8f0534cb7b41e337d
 
 build:
   number: 0
@@ -22,14 +22,11 @@ requirements:
     - make
     - pkg-config
   host:
-    - alsa-lib >=1.0.11
-    # until alsa-plugins 1.1.7, ffmpeg with av_resample functions in avcodec needed
-    - ffmpeg <4
+    - alsa-lib >=1.1.6
+    - ffmpeg
     - jack >=0.98
     - pulseaudio >=0.9.11
   run:
-    # newer ffmpeg have a run_exports
-    - {{ pin_compatible('ffmpeg', max_pin='x.x') }}
     - {{ pin_compatible('jack', max_pin='x.x.x') }}
 
 test:
