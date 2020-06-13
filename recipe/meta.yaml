@@ -22,7 +22,7 @@ requirements:
     - make
     - pkg-config
   host:
-    - alsa-lib >=1.1.6
+    - alsa-lib
     - ffmpeg
     - jack >=0.98
     - pulseaudio >=0.9.11
