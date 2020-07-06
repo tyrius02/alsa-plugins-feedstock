@@ -5,7 +5,7 @@ Home: http://www.alsa-project.org/main/index.php/Main_Page
 
 Package license: LGPL-2.1-or-later AND GPL-3.0-or-later
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: The Advanced Linux Sound Architecture (ALSA) - plugins
 
