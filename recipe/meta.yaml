@@ -31,27 +31,12 @@ requirements:
 
 test:
   commands:
-    {% set mods = [
-        "conf_pulse",
-        "ctl_arcam_av",
-        "ctl_oss",
-        "ctl_pulse",
-        "pcm_a52",
-        "pcm_jack",
-        "pcm_oss",
-        "pcm_pulse",
-        "pcm_upmix",
-        "pcm_usb_stream",
-        "pcm_vdownmix",
-        "rate_lavrate",
-        "rate_lavrate_fast",
-        "rate_lavrate_faster",
-        "rate_lavrate_high",
-        "rate_lavrate_higher",
-        "rate_speexrate",
-        "rate_speexrate_best",
-        "rate_speexrate_medium",
-    ] %}
+    {% set mods = ["conf_pulse", "ctl_arcam_av", "ctl_oss", "ctl_pulse"] %}
+    {% set mods = mods + ["pcm_a52", "pcm_jack", "pcm_oss", "pcm_pulse"] %}
+    {% set mods = mods + ["pcm_upmix", "pcm_usb_stream", "pcm_vdownmix"] %}
+    {% set mods = mods + ["rate_lavrate", "rate_lavrate_fast", "rate_lavrate_faster"] %}
+    {% set mods = mods + ["rate_lavrate_high", "rate_lavrate_higher", "rate_speexrate"] %}
+    {% set mods = mods + ["rate_speexrate_best", "rate_speexrate_medium"] %}
     {% for mod in mods %}
     - test -f $PREFIX/lib/alsa-lib/libasound_module_{{ mod }}$SHLIB_EXT
     {% endfor %}
