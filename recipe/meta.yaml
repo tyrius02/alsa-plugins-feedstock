@@ -10,7 +10,7 @@ source:
   sha256: 1c0f06450c928d711719686c9dbece2d480184f36fab11b8f0534cb7b41e337d
 
 build:
-  number: 1
+  number: 2 
   skip: True  # [not linux]
 
 requirements:
@@ -26,6 +26,8 @@ requirements:
     - ffmpeg
     - jack >=0.98
     - pulseaudio >=0.9.11
+    - libsndfile
+    - libsamplerate
   run:
     - {{ pin_compatible('jack', max_pin='x.x.x') }}
 
@@ -37,6 +39,8 @@ test:
     {% set mods = mods + ["rate_lavrate", "rate_lavrate_fast", "rate_lavrate_faster"] %}
     {% set mods = mods + ["rate_lavrate_high", "rate_lavrate_higher", "rate_speexrate"] %}
     {% set mods = mods + ["rate_speexrate_best", "rate_speexrate_medium"] %}
+    {% set mods = mods + ["rate_samplerate", "rate_samplerate_linear", "rate_samplerate_order"] %}
+    {% set mods = mods + ["rate_samplerate_best", "rate_samplerate_medium"] %}
     {% for mod in mods %}
     - test -f $PREFIX/lib/alsa-lib/libasound_module_{{ mod }}$SHLIB_EXT
     {% endfor %}
